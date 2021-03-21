@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VueAdd</title>
+    <script src="~/js/vue.min.js"></script>
+    <script src="~/js/axios.min.js"></script>
+</head>
+<body>
+    <div class="addDiv">
+        <p>
+            菜单名称：<input type="text" v-model="MName" />
+        </p>
+
+        <p>
+            URL：<input type="text" v-model="URL" />
+        </p>
+
+        <p>
+            父级菜单编号：<input type="text" v-model="PId" />
+        </p>
+
+        <p>
+            排序号：<input type="text" v-model="Sort" />
+        </p>
+
+        <p>
+            描述：<input type="text" v-model="Remark" />
+        </p>
+        <p>
+            <input type="button" v-on:click="addMenu" value="添加菜单"/>
+        </p>
+    </div>
+
+
+    <script type="text/javascript">
+        //使用axios实现 Vue.js 2.0 版本推荐使用 axios 来完成 ajax 请求。Axios 是一个基于 Promise 的 HTTP 库，可以用在浏览器和 node.js 中。
+
+        new Vue({
+            el: '.addDiv',
+            data: {
+                MName: '1',
+                URL: '2',
+                Remark: '3',
+                PId: 4,
+                Sort:5
+
+            },
+            methods: {
+                addMenu() {
+                    axios.post('http://localhost:8081/api/sys/AddMenuAxios',
+                        {
+                            MName: this.MName,
+                            URL: this.URL,
+                            Remark: this.Remark,
+                            PId: parseInt( this.PId),
+                            Sort: parseInt( this.Sort),
+                        })
+                        .then(function (response) {
+                            if (response.data>0) {
+                                 alert("添加成功");
+                            }
+                           
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+        })
+    </script>
+</body>
+</html>

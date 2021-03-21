@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: 'http://localhost:14059/api/baseinfo/getemp',
+                type: 'GET',
+                dataType: 'json',
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (result) {
+                    alert(result.length);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

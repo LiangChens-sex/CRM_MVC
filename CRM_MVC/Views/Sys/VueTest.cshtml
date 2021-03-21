@@ -1,0 +1,206 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="~/js/vue.min.js"></script>
+    <script src="~/js/axios.min.js"></script>
+    <script src="~/js/vue-resource.min.js"></script>
+</head>
+<body>
+    <div id="divStu">
+        <p>
+            <label>姓名：</label><input v-model="Name" type="text" />
+        </p>
+
+        <p>
+            <label>年龄：</label><input v-model="Age" type="text" />
+        </p>
+
+        <button class="btn btn-primary" v-on:click="Age++;if(Name=='魏许东')Name='韩艳琴';else Name='魏许东';">年龄递增</button>
+
+        <p>
+            <label>学校：</label> <label v-html="School" v-bind:style="{color:FColor}"></label>
+        </p>
+        <p>
+            @*是否已婚：<label v-if="IsMarry">是</label>*@
+            是否已婚：<label v-show="IsMarry">是</label>
+        </p>
+        <p>
+            是否成人：<label v-if="Age>18">大人</label> <label v-else>小屁孩</label>
+        </p>
+        <p>
+          信息汇总：  姓名：{{Name}}，年龄：{{Age}},学校：{{School}}
+        </p>
+    </div>
+
+    <div class="divFruit">
+        <ul>
+            <li v-for="a in fruits">{{a}}</li>
+        </ul>
+
+
+        <ol>
+            <li v-for="(value,key) in data">{{key}}:{{value}}</li>
+
+        </ol>
+
+        <h3 v-for="(value,key,index) in data">{{index}}-{{key}}:{{value}}</h3>
+    </div>
+
+    <h1>异步操作</h1>
+    <h2>异步查询</h2>
+
+    <div id="app">
+        百度智能提示功能：
+        <input type="text" v-model="keyword" v-keyup="sendJsonP(keyword)">
+        <ul>
+            <li v-for="r in result">{{r}}</li>
+        </ul>
+    </div>
+
+    <h2>跨域查看所有员工</h2>
+
+    <div id="divGet">
+        <button class="btn btn-primary" v-on:click="getEmp">跨域查看员工</button>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>工号</th>
+                    <th>密码</th>
+                    <th>姓名</th>
+                    <th>身份证</th>
+                    <th>部门编号</th>
+                    <th>性别</th>
+                    <th>手机</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in emps">
+                    <td v-for="(value,key) in item">{{value}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+    //Vue框架是一个MVVM框架，支持双向绑定
+    //Model就是data变量，而ViewModel就是这里的new Vue()得到的对象
+    //v-text、v-html这两者（只能实现单向绑定）一个用于绑定文本，一个用于绑定html。 {{ Name }}这种写法就是v-text的的缩写形式
+    //v-model指令（支持双向绑定），vue限定只能对表单控件进行绑定，常见的有<input>、<select>、<textarea>等
+    //v-if和v-else使用条件运算符判断时常用。需要说明的是，v-if可以单独使用，但是v-else的前面必须要有一个v-if的条件或者v-show指令
+    //v-show指令表示根据表达式之bool值，是否显示该元素。需要说明的是，如果bool值false，对应的Dom标签还是会渲染到页面上面，只是将该标签的css属性display设为none而已
+    //v-for 指令需要以 item in items 形式的特殊语法。常用来绑定数据对象。
+    //v-bind的作用是绑定除了text、value之外的其他html标签属性
+    //v-on指令用来绑定标签的事件，其语法和v-bind基本类似
+
+    //Vue.js 2.0 版本推荐使用 axios 来完成 ajax 请求。
+    //axios中只能使用get和post方法来进行请求数据，没有提供jsonp等方法进行跨域访问数据
+
+
+    var data = { Name: "张三", Age: 11, School: "<span>八维</span>", IsMarry: false, FColor: 'red' };
+
+    var data1 = { fruits: ['苹果', '香蕉', '梨', '火龙果', '榴莲'] };
+
+    //双向绑定
+        var vue1 = new Vue({
+            el: "#divStu",
+            data: data
+        });
+
+    //循环绑定数据
+    var vue2 = new Vue({
+        el: ".divFruit",
+        data: data1,
+        stus: data
+    });
+
+    //百度智能提示
+    var vue4 = new Vue({
+    el: '#app',
+    data: {
+      keyword: '',
+      result: ''
+    },
+    methods: {
+      sendJsonP(keyword) {
+        let url = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web';
+        this.$http.jsonp(url, {
+          params: {
+            wd: keyword
+          },
+
+          jsonp: 'cb'//jsonp默认是callback,百度缩写成了cb，所以需要指定下                     }
+        }).then(res => {
+          if (res.data.g) {
+            this.result = res.data.g.map(x => x['q']);
+          } else {
+            this.result = [];
+          }
+        });
+      }
+    }
+    });
+
+    //vue-resource跨域请求(查询)
+    var vue3 = new Vue({
+        el: "#divGet",
+        data: {emps:''},
+        methods: {
+            getEmp: function () {
+                //发送get请求
+                this.$http.jsonp('http://localhost:8081/api/baseinfo/GetEmpJsonP', { jsonp:'cbEmp'}).then(
+                    function (res) {
+                        this.emps = res.body;
+                    }, function (ress,xhr,err) {
+                        console.log('请求失败处理' + ress.jsonp);
+                }
+                ).catch(err => { console.log(err) });
+            },
+            addEmp: function () {
+                var url = 'http://localhost:8081/api/baseinfo/GetEmp1';
+                //发送get请求
+                this.$http.jsonp(
+                    url,
+                    {
+                        params: {
+                            wd: keyword
+                        }
+                    }).then(
+                    function (res) {
+                        document.write(res.body);
+                    }, function (ress) {
+                        console.log('请求失败处理' + ress.jsonp);
+                }
+                ).catch(err => { console.log(err) });
+            },
+            getData: function () {
+                var self = this
+                $.ajax({
+                    url: 'http://localhost:8081/api/baseinfo/GetEmp',
+                    type: 'GET',
+                    dataType: 'JSONP',
+                    success: function (res) {
+                        self.data = res.data.slice(0, 3)
+                        self.opencode = res.data[0].opencode.split(',')
+                    },
+                    error: function (err)
+                    {
+                        console.log(err);
+                    }
+                })
+            }
+        }
+    });
+
+
+    </script>
+
+</body>
+</html>

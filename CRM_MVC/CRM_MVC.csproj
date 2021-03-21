@@ -1,0 +1,201 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>CRM_MVC.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\json\**" />
+    <Compile Remove="wwwroot\layui\**" />
+    <Compile Remove="wwwroot\lay\**" />
+    <Compile Remove="wwwroot\src\**" />
+    <Content Remove="wwwroot\json\**" />
+    <Content Remove="wwwroot\layui\**" />
+    <Content Remove="wwwroot\lay\**" />
+    <Content Remove="wwwroot\src\**" />
+    <EmbeddedResource Remove="wwwroot\json\**" />
+    <EmbeddedResource Remove="wwwroot\layui\**" />
+    <EmbeddedResource Remove="wwwroot\lay\**" />
+    <EmbeddedResource Remove="wwwroot\src\**" />
+    <None Remove="wwwroot\json\**" />
+    <None Remove="wwwroot\layui\**" />
+    <None Remove="wwwroot\lay\**" />
+    <None Remove="wwwroot\src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\layui.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\login\logo.psd" />
+    <None Include="wwwroot\js\index.js" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\static\admin\fonts\iconfont.js" />
+    <None Include="wwwroot\static\admin\fonts\iconfont.svg" />
+    <None Include="wwwroot\static\admin\js\common.js" />
+    <None Include="wwwroot\static\admin\js\main.js" />
+    <None Include="wwwroot\js\module\dialog.js" />
+    <None Include="wwwroot\js\module\formate.js" />
+    <None Include="wwwroot\js\module\tool.js" />
+    <None Include="wwwroot\static\admin\layui\font\iconfont.svg" />
+    <None Include="wwwroot\static\admin\layui\layui.js" />
+    <None Include="wwwroot\static\admin\layui\lay\dest\layui.all.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\code.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\element.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\flow.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\form.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\jquery.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\laydate.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\layedit.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\layer.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\laypage.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\laytpl.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\mobile.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\tree.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\upload.js" />
+    <None Include="wwwroot\static\admin\layui\lay\modules\util.js" />
+    <None Include="wwwroot\static\admin\less\admin.less" />
+    <None Include="wwwroot\static\admin\less\avatar.less" />
+    <None Include="wwwroot\static\admin\less\column.less" />
+    <None Include="wwwroot\static\admin\less\comment.less" />
+    <None Include="wwwroot\static\admin\less\css3.less" />
+    <None Include="wwwroot\static\admin\less\email.less" />
+    <None Include="wwwroot\static\admin\less\grid.less" />
+    <None Include="wwwroot\static\admin\less\login.less" />
+    <None Include="wwwroot\static\admin\less\main.less" />
+    <None Include="wwwroot\static\admin\less\page.less" />
+    <None Include="wwwroot\static\admin\less\panel.less" />
+    <None Include="wwwroot\static\admin\less\reset.less" />
+    <None Include="wwwroot\static\admin\less\var.less" />
+    <None Include="wwwroot\static\admin\less\welcome.less" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\bar.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\chord.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\eventRiver.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\force.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\funnel.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\gauge.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\heatmap.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\k.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\line.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\map.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\pie.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\radar.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\scatter.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\tree.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\treemap.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\venn.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\chart\wordCloud.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\echarts-all.js" />
+    <None Include="wwwroot\static\admin\lib\echarts\echarts.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\attachment\attachment.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\background\background.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\charts\chart.config.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\charts\charts.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\emotion\emotion.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\help\help.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\image\image.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\internal.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\music\music.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\scrawl\scrawl.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\searchreplace\searchreplace.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\spechars\spechars.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\table\edittable.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\template\config.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\template\template.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\video\video.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\wordimage\tangram.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\dialogs\wordimage\wordimage.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\lang\en\en.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\lang\zh-cn\zh-cn.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\php\action_crawler.php" />
+    <None Include="wwwroot\static\admin\lib\ueditor\php\action_list.php" />
+    <None Include="wwwroot\static\admin\lib\ueditor\php\action_upload.php" />
+    <None Include="wwwroot\static\admin\lib\ueditor\php\controller.php" />
+    <None Include="wwwroot\static\admin\lib\ueditor\php\Uploader.class.php" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\codemirror\codemirror.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\adapters\mootools-adapter.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\adapters\prototype-adapter.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\adapters\standalone-framework.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\highcharts-more.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\highcharts-more.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\highcharts.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\highcharts.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\annotations.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\annotations.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\canvas-tools.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\canvas-tools.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\data.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\data.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\drilldown.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\drilldown.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\exporting.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\exporting.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\funnel.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\funnel.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\heatmap.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\heatmap.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\map.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\map.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\no-data-to-display.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\themes\dark-blue.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\themes\dark-green.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\themes\gray.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\themes\grid.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\highcharts\themes\skies.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\jquery-1.10.2.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\jquery-1.10.2.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\jquery-1.10.2.min.map" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\video-js\font\vjs.svg" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\video-js\video-js.swf" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\video-js\video.dev.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\video-js\video.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\Uploader.swf" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.custom.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.custom.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.flashonly.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.flashonly.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.html5only.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.html5only.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.withoutimage.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\zeroclipboard\ZeroClipboard.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <None Include="wwwroot\static\admin\lib\ueditor\ueditor.all.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\ueditor.all.min.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\ueditor.config.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\ueditor.parse.js" />
+    <None Include="wwwroot\static\admin\lib\ueditor\ueditor.parse.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+
+</Project>

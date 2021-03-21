@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Layui</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
+    </head>
+    <body>
+        <button class="layui-btn layui-btn-small layui-btn-normal addBtn" data-url="/Sys/AddMenu" onclick="javascript:void(location.href='/Sys/AddMenu')"><i class="layui-icon"></i></button>
+        <table class="layui-table" id="test" lay-filter="test">
+            <thead>
+                <tr>
+                    <th lay-data="{field:'username', width:100}">菜单名称</th>
+                    <th lay-data="{field:'experience', width:80, sort:true}">URL</th>
+                    <th lay-data="{field:'sign'}">排序号</th>
+                    <th lay-data="{fixed: 'right', width:150, align:'center', toolbar: '#barDemo'}">说明</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in (List<MenuInfo>)ViewBag.menu)
+                {
+                    <tr>
+                        <td>@item.MName</td>
+                        <td>@item.URL</td>
+                        <td>@item.Sort</td>
+                        <td>@item.Remark</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+                <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+                <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+            </div>
+        </script>
+
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        </script>
+
+
+        <script src="~/static/admin/layui/layui.js" charset="utf-8"></script>
+
+
+    </body>
+    </html>
